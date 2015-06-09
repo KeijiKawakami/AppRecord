@@ -16,6 +16,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        //var ourPSN: ProcessSerialNumber?
+        //GetCurrentProcess(ourPSN)
+        
+        //var nexrPSN: ProcessSerialNumber
+        let psn = ProcessSerialNumber(highLongOfPSN: UInt32(0), lowLongOfPSN: UInt32(kCurrentProcess))
+        let target = NSAppleEventDescriptor(descriptorType: DescType(typeProcessSerialNumber), bytes:&psn, length:sizeof(ProcessSerialNumber))
+        
         return true
     }
 
